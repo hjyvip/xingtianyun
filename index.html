@@ -1,78 +1,115 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
-    <meta name="theme-color" content="#0665d0" />
-    <title>极速云</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <style>
-      .sf-hidden {
-        display: none !important;
-      }
-    </style>
-    <!-- <meta http-equiv=content-security-policy
-        content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:;"> -->
-    <style>
-      img[src='data:,'],
-      source[src='data:,'] {
-        display: none !important;
-      }
-    </style>
-  </head>
 
-  <body>
-    <div id="root">
-      <div id="page-container">
-        <main id="main-container">
-          <div class="bafang-background"></div>
-          <div class="no-gutters bafang-auth-box">
-            <div style="max-width: 450px; width: 100%; margin: auto">
-              <div class="mx-2 mx-sm-0">
-                <div class="block mb-0 overflow-hidden block-rounded block-transparent block-fx-pop w-100 bg-image" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0.5rem 2rem">
-                  <div class="row no-gutters">
-                    <div class="bg-white col-md-12 order-md-1">
-                      <div class="block-content block-content-full px-lg-4 py-md-4 py-lg-4">
-                        <div class="mb-3 text-center">
-                          <a class="font-size-h1"> <span class="text-dark">极速云</span></a>
-                          <p class="mb-3 font-size-sm text-muted">官方直招代理 佣金高达百分之50%</p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+  <meta name="theme-color" content="#0665d0" />
+  <title>KFC</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <!-- <link type=image/x-icon rel="shortcut icon" href=data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACalBMVEWr1N6Tt7+s1N6Str+TtsCr1N+Tt8Cr1d+s1d6r1d6f0OCHscWStsCs1N+TtsEAAACt1d6s1d6r1N6t1d+s1d6s1d+s1N6t1d+UuMGUuMGTt8CStr+UuMGSt7+Str+s1d+s1d+t1d+t1d+Tt8CTuMGTt8CTt8Cs1d+r1N6v1uDF4eiiydOUucKStr+Tt8Cy2OGXu8W42+OawMmav8ms1d+12eOYvsiTt8Cq1N+i0eCMs8KStsCp1N+RtsGq1N+StsCr1N+s1d6r1N+StsCTt7+St8Cr1d+r1N+StsCr1d6q1N+y192Xub2StsCTtr+r1N+t1d6q1N+x1t2bz+KHscaWuL2StsCTt7+StsCSt7+r1d6r1N+t1d6r1N+StsCTt7+StsCTt7+StsCr1N6r1N+r092p1N+RtsGUuMGStsCTtsCq1N6l0dyp096Rtb6Ps7ys1d+m0dzh8PP6/P3B7/uz3umPsruTtsDy+Pr+/v7+/v/9/v7C8f7G9f/H9/7E9P686fWTt8Cr1N7////6/f7L+P/F8/7B8P7B8PzH9/+Str/c8f6R0/x8u/mt4f3I9v/N+f7K+f+Ttr+r1N+95v9sxfsyr/oZpPkdpvk0gvQxgfRBjPVmqfeZ0/+StsATo/okqfkqq/orq/ooq/o7iPU8ivU8ifU4hfMtfvaz1902r/cpq/knqvooqvk6iPU6h/U7iPREjfCXub2y191nv+whqPsoq/k2hfdlntuq1N8qq/k8iPORtsCv1t6IyeYcp/wrq/k8ifMzg/l7qs6VuL5/xugep/s0hfh1p9E/svVJkOus1N6XubwAAADfHu41AAAAa3RSTlMAAAAAAAAAAAAAAAAAAAAAAAECAQQ/l+jpmEAFAQIBHG3G/v7Hbh0L+/z8/Pz7C/r6+/v7Cfv7Cf78/P7Z2YaGAhr7+xoCApmZBOT9/eQEARXx/v39/vEVAgEBAwzPzwwDAQEBBFHg4FEEAb3jeBIAAAABYktHRA8YugDZAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJTUUH5QQPCTQLBJeH9wAAARZJREFUGNNjEBRiEBYRFROXkJSSlmGUlWNgkldQVMrOyc3Lz1NWUVVjZlAv0CjU1CoqLinV1inTLdcDCuhXVFZWVdfU1tU3GDQCBZoMm4tbqptb29o7Oo26IALVzd09vX39EyYaT9JjMJlsOmXqtOkzZs6aPWeu2TxzBgYLy/kLFi5avGTpsuUrrKxZGFhtVq5avWbt2nXr1m/YuMmWjYHdbvOWrdtAAhu279hkz8bg4LjTac0ukMDu9c57XFwZ3Djc9+7bf2DNuoOHDh/xYJRl4PTk8vI+emzN+uMnfHy5/ZgZ/BkcAgKDgk+eCgkNC4/giWTgFYyKjok9vfJMY1x8QmISHwM/q2ByikBqWnoGY2ZiFjM/AO4LZg88+g4KAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIxLTA0LTE1VDA5OjUyOjExKzAwOjAwl8lkOAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMS0wNC0xNVQwOTo1MjoxMSswMDowMOaU3IQAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC> -->
+  <style>
+    .sf-hidden {
+      display: none !important;
+    }
+  </style>
+  <!-- <meta http-equiv=content-security-policy
+        content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:;"> -->
+  <style>
+    img[src='data:,'],
+    source[src='data:,'] {
+      display: none !important;
+    }
+
+    .v2board-email-whitelist-enable {
+      display: flex;
+    }
+
+    .v2board-email-whitelist-enable input {
+      flex: 2 1;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .v2board-email-whitelist-enable select {
+      flex: 1 1;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-position: right 50%;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='12'%3E%3Cpath d='M3.862 7.931L0 4.069h7.725z'/%3E%3C/svg%3E");
+      padding-right: 1.5em;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <div id="page-container">
+      <main id="main-container">
+        <div class="bafang-background"></div>
+        <div class="no-gutters bafang-auth-box">
+          <div style="max-width: 450px; width: 100%; margin: auto">
+            <div class="mx-2 mx-sm-0">
+              <div class="block mb-0 overflow-hidden block-rounded block-transparent block-fx-pop w-100 bg-image"
+                style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0.5rem 2rem">
+                <div class="row no-gutters">
+                  <div class="bg-white col-md-12 order-md-1">
+                    <div class="block-content block-content-full px-lg-4 py-md-4 py-lg-4">
+                      <div class="mb-3 text-center">
+                        <a class="font-size-h1"> <span class="text-dark">KFC</span></a>
+                        <p class="mb-3 font-size-sm text-muted">懂你味道的VPN</p>
+                      </div>
+                      <div>
+                        <div class="form-group v2board-email-whitelist-enable">
+                          <input type="text" class="form-control form-control-alt" placeholder="邮箱" value>
+                          <select class="form-control form-control-alt">
+                            <option value="gmail.com">@gmail.com</option>
+                            <option value="qq.com">@qq.com</option>
+                            <option value="163.com">@163.com</option>
+                            <option value="yahoo.com">@yahoo.com</option>
+                            <option value="outlook.com">@outlook.com</option>
+                          </select>
                         </div>
-                        <div>
-                          <div class="form-group">
-                            <input type="text" class="form-control form-control-alt" placeholder="邮箱" value />
-                          </div>
-                          <div class="form-group">
-                            <input type="password" class="form-control form-control-alt" placeholder="密码" value />
-                          </div>
-                          <div class="form-group">
-                            <input type="password" class="form-control form-control-alt" placeholder="确认密码" value />
-                          </div>
-                          <div class="mb-0 form-group">
-                            <button class="btn btn-block btn-primary font-w400" style="color: #fff; background-color: #343a40; border-color: #343a40">
-                              <i class="mr-1 si si-emoticon-smile"></i>
-                              <span id="register"> 注册 </span>
-                            </button>
-                            <div class="mb-3 font-size-sm text-muted" style="color: #ff00008f !important; text-align: center; margin: 4px 0 0">一直显示注册中，请使用科学上网打开注册</div>
+                        <div class="form-group">
+                          <input type="password" class="form-control form-control-alt" placeholder="密码" value />
+                        </div>
+                        <div class="form-group">
+                          <input type="password" class="form-control form-control-alt" placeholder="确认密码" value />
+                        </div>
+                        <div class="mb-0 form-group">
+                          <button class="btn btn-block btn-primary font-w400"
+                            style="color: #fff; background-color: #0665d0; border-color: #343a40">
+                            <i class="mr-1 si si-emoticon-smile"></i>
+                            <span id="register"> 注册 </span>
+                          </button>
+                          <div class="mb-3 font-size-sm text-muted"
+                            style="color: #ff00008f !important; text-align: center; margin: 4px 0 0">一直显示注册中，请使用科学上网打开注册
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="p-3 px-4 text-left bg-gray-lighter">
-                    <a class="font-size-sm text-muted" href="//www.jisuyun.me/#/login">返回登入</a>
-                    <span class="bafang-login-i18n-btn ant-dropdown-trigger">
-                      <i class="pr-1 si si-globe"></i>
-                      <span class="font-size-sm text-muted" style="vertical-align: text-bottom">简体中文</span>
-                    </span>
-                  </div>
+                </div>
+                <div class="p-3 px-4 text-left bg-gray-lighter">
+                  <a class="font-size-sm text-muted" href="https://kfccloud.cc/#/login">返回登入</a>
+                  <span class="bafang-login-i18n-btn ant-dropdown-trigger">
+                    <i class="pr-1 si si-globe"></i>
+                    <span class="font-size-sm text-muted" style="vertical-align: text-bottom">简体中文</span>
+                  </span>
                 </div>
               </div>
             </div>
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
-    <div class="ant-notification ant-notification-topRight" id="noti" style="right: 0px; top: 24px; bottom: auto"></div>
-    <script src="./js/main.js"></script>
-  </body>
+  </div>
+  <div class="ant-notification ant-notification-topRight" id="noti" style="right: 0px; top: 24px; bottom: auto"></div>
+  <script src="./js/main.js"></script>
+</body>
+
 </html>
